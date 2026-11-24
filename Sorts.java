@@ -41,4 +41,18 @@ public class Sorts {
             System.out.println();
         }
     }
+
+    public static void selectionSort(int[] values) {
+        for (int i = 0; i < values.length - 1; i++) {
+            int minIndex = i;
+
+            for (int j = i + 1; j < values.length; j++) {
+                if (values[j] < values[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            swap(values, i, minIndex);
+        }
+    }
 }
