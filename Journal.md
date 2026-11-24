@@ -1,0 +1,2 @@
+# Phase 1
+The `swap()` method will be useful in future phases because sorting algorithms like Selection Sort need to exchange elements to put them in the correct order. It also makes the sorting code easier to reuse.
