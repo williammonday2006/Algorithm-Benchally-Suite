@@ -55,4 +55,48 @@ public class Sorts {
             swap(values, i, minIndex);
         }
     }
+
+    public static void mergeSort(int[] values) {
+        int[] tempArray = new int[values.length];
+        mergeSort(values, tempArray, 0, values.length - 1);
+    }
+
+    private static void mergeSort(int[] values, int[] tempArray, int first, int last) {
+        if (first >= last) {
+            return;
+        }
+
+        int middle = (first + last) / 2;
+
+        mergeSort(values, tempArray, first, middle);
+        mergeSort(values, tempArray, middle + 1, last);
+
+        merge(values, tempArray, first, middle, last);
+    }
+
+    private static void merge(int[] values, int[] tempArray, int first, int middle, int last) {
+        int left = first;
+        int right = middle + 1;
+        int index = first;
+
+        while (left <= middle && right <= last) {
+            if (values[left] <= values[right]) {
+                tempArray[index++] = values[left++];
+            } else {
+                tempArray[index++] = values[right++];
+            }
+        }
+
+        while (left <= middle) {
+            tempArray[index++] = values[left++];
+        }
+
+        while (right <= last) {
+            tempArray[index++] = values[right++];
+        }
+
+        for (int i = first; i <= last; i++) {
+            values[i] = tempArray[i];
+        }
+    }
 }
