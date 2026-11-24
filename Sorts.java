@@ -99,4 +99,10 @@ public class Sorts {
             values[i] = tempArray[i];
         }
     }
+
+
+    public static int[] copyArray(int[] values) {
+        return values.clone();
+    }
+
 }
